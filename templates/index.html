@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Professor Locator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message bot-message">Welcome to the prof-bot!</div>
+            {% if user_input %}
+                <div class="message user-message">{{ user_input }}</div>
+            {% endif %}
+            {% if bot_response %}
+                <div class="message bot-message">{{ bot_response }}</div>
+            {% endif %}
+        </div>
+        <form method="POST">
+            <input type="text" name="message" id="user-input" placeholder="Type a message..." autocomplete="off" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
